@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @MappedSuperclass
-public class BrokenRelation{
+public class BrokenRelationEntity {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)

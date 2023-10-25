@@ -37,9 +37,6 @@ public class Travel extends ParentEntity{
     @Column
     private Long tax;
 
-    @Column
-    private String notes;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="tenant_id", nullable=false)
     private Tenant tenant;
@@ -47,7 +44,7 @@ public class Travel extends ParentEntity{
     @Column
     private Boolean isEditable;
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "travel", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Addition> additions = new ArrayList<>();
 
     public String getCode() {
@@ -104,14 +101,6 @@ public class Travel extends ParentEntity{
 
     public void setTax(Long tax) {
         this.tax = tax;
-    }
-
-    public String getNotes() {
-        return notes;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes;
     }
 
     public Tenant getTenant() {

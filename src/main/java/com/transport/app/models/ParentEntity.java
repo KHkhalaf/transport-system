@@ -23,6 +23,17 @@ public class ParentEntity {
     @Temporal(TemporalType.TIMESTAMP)
     private Date deletedAt;
 
+    @Column
+    private String notes;
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
     public Long getId() {
         return id;
     }

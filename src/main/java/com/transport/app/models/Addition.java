@@ -21,9 +21,6 @@ public class Addition extends ParentEntity{
     @Column
     private String name;
 
-    @Column
-    private String notes;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="tenant_id", nullable=false)
     private Tenant tenant;
@@ -51,14 +48,6 @@ public class Addition extends ParentEntity{
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getNotes() {
-        return notes;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes;
     }
 
     public Tenant getTenant() {
