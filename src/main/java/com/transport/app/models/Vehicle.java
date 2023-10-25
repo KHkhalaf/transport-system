@@ -38,6 +38,15 @@ public class Vehicle extends ParentEntity{
     @JoinColumn(name="tenant_id", nullable=false)
     private Tenant tenant;
 
+    @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<VehicleAddition> vehicleAdditions = new ArrayList<>();
+
+    @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<VehicleStation> vehicleStations = new ArrayList<>();
+
+    @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TravelVehicle> travelVehicles = new ArrayList<>();
+
     @Column
     private String model;
 

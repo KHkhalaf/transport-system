@@ -10,8 +10,8 @@ public class Ticket extends ParentEntity{
     private Reservation reservation;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "seat_id", nullable = false)
-    private Seat seat;
+    @JoinColumn(name = "travel_seat_id", nullable = false)
+    private TravelSeat travelSeat;
 
     @Column
     private Long number;
@@ -32,12 +32,12 @@ public class Ticket extends ParentEntity{
         this.reservation = reservation;
     }
 
-    public Seat getSeat() {
-        return seat;
+    public TravelSeat getTravelSeat() {
+        return travelSeat;
     }
 
-    public void setSeat(Seat seat) {
-        this.seat = seat;
+    public void setTravelSeat(TravelSeat travelSeat) {
+        this.travelSeat = travelSeat;
     }
 
     public Long getNumber() {

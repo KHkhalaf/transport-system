@@ -1,11 +1,11 @@
 package com.transport.app.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
-public class TravelSeat extends BrokenRelationEntity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class TravelSeat extends ParentRelationEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "travel_id", nullable = false)
     private Travel travel;
@@ -13,6 +13,9 @@ public class TravelSeat extends BrokenRelationEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "seat_id", nullable = false)
     private Seat seat;
+
+    @OneToMany(mappedBy = "travelSeat", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Ticket> tickets = new ArrayList<>();
 
     @Column
     private String code;

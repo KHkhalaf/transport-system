@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 
-public class TravelStation extends BrokenRelationEntity {
+public class TravelStation extends ParentRelationEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="station_id", nullable=false)
     private Station station;

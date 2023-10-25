@@ -45,7 +45,62 @@ public class Travel extends ParentEntity{
     private Boolean isEditable;
 
     @OneToMany(mappedBy = "travel", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Addition> additions = new ArrayList<>();
+    private List<TravelAddition> additions = new ArrayList<>();
+
+    @OneToMany(mappedBy = "travel", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Request> requests = new ArrayList<>();
+
+    @OneToMany(mappedBy = "travel", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TravelSeat> travelSeats = new ArrayList<>();
+
+    @OneToMany(mappedBy = "travel", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TravelTimeStone> travelTimeStones = new ArrayList<>();
+
+    @OneToMany(mappedBy = "travel", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TravelStation> travelStations = new ArrayList<>();
+
+    @OneToMany(mappedBy = "travel", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TravelVehicle> travelVehicles = new ArrayList<>();
+
+    public List<TravelSeat> getTravelSeats() {
+        return travelSeats;
+    }
+
+    public void setTravelSeats(List<TravelSeat> travelSeats) {
+        this.travelSeats = travelSeats;
+    }
+
+    public List<TravelTimeStone> getTravelTimeStones() {
+        return travelTimeStones;
+    }
+
+    public void setTravelTimeStones(List<TravelTimeStone> travelTimeStones) {
+        this.travelTimeStones = travelTimeStones;
+    }
+
+    public List<TravelStation> getTravelStations() {
+        return travelStations;
+    }
+
+    public void setTravelStations(List<TravelStation> travelStations) {
+        this.travelStations = travelStations;
+    }
+
+    public List<TravelVehicle> getTravelVehicles() {
+        return travelVehicles;
+    }
+
+    public void setTravelVehicles(List<TravelVehicle> travelVehicles) {
+        this.travelVehicles = travelVehicles;
+    }
+
+    public List<Request> getRequests() {
+        return requests;
+    }
+
+    public void setRequests(List<Request> requests) {
+        this.requests = requests;
+    }
 
     public String getCode() {
         return code;
@@ -119,11 +174,4 @@ public class Travel extends ParentEntity{
         isEditable = editable;
     }
 
-    public List<Addition> getAdditions() {
-        return additions;
-    }
-
-    public void setAdditions(List<Addition> additions) {
-        this.additions = additions;
-    }
 }

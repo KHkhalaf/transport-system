@@ -4,6 +4,9 @@ import com.transport.app.enums.TimeStoneCategory;
 import com.transport.app.enums.TimeStoneStatus;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class TimeStone extends ParentEntity{
 
@@ -17,6 +20,17 @@ public class TimeStone extends ParentEntity{
     @Column
     @Enumerated(EnumType.STRING)
     private TimeStoneStatus status;
+
+    @OneToMany(mappedBy = "timeStone", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TravelTimeStone> travelTimeStones = new ArrayList<>();
+
+    public List<TravelTimeStone> getTravelTimeStones() {
+        return travelTimeStones;
+    }
+
+    public void setTravelTimeStones(List<TravelTimeStone> travelTimeStones) {
+        this.travelTimeStones = travelTimeStones;
+    }
 
     public String getKey() {
         return key;

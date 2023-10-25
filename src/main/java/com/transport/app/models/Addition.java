@@ -25,6 +25,27 @@ public class Addition extends ParentEntity{
     @JoinColumn(name="tenant_id", nullable=false)
     private Tenant tenant;
 
+    @OneToMany(mappedBy = "addition", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TravelAddition> travelAdditionList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<VehicleAddition> vehicleAdditionList = new ArrayList<>();
+
+    public List<TravelAddition> getTravelAdditionList() {
+        return travelAdditionList;
+    }
+
+    public void setTravelAdditionList(List<TravelAddition> travelAdditionList) {
+        this.travelAdditionList = travelAdditionList;
+    }
+
+    public List<VehicleAddition> getVehicleAdditionList() {
+        return vehicleAdditionList;
+    }
+
+    public void setVehicleAdditionList(List<VehicleAddition> vehicleAdditionList) {
+        this.vehicleAdditionList = vehicleAdditionList;
+    }
 
     public AdditionType getType() {
         return type;

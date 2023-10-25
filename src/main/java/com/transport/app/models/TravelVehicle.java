@@ -3,7 +3,7 @@ package com.transport.app.models;
 import jakarta.persistence.*;
 
 @Entity
-public class TravelVehicle extends BrokenRelationEntity{
+public class TravelVehicle extends ParentRelationEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "travel_id", nullable = false)

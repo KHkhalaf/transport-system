@@ -4,6 +4,9 @@ import com.transport.app.enums.StationStatus;
 import com.transport.app.enums.StationType;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class Station extends ParentEntity{
 
@@ -33,6 +36,28 @@ public class Station extends ParentEntity{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="tenant_id", nullable=false)
     private Tenant tenant;
+
+    @OneToMany(mappedBy = "station", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<VehicleStation> vehicleStations = new ArrayList<>();
+
+    @OneToMany(mappedBy = "station", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TravelStation> travelStations = new ArrayList<>();
+
+    public List<VehicleStation> getVehicleStations() {
+        return vehicleStations;
+    }
+
+    public void setVehicleStations(List<VehicleStation> vehicleStations) {
+        this.vehicleStations = vehicleStations;
+    }
+
+    public List<TravelStation> getTravelStations() {
+        return travelStations;
+    }
+
+    public void setTravelStations(List<TravelStation> travelStations) {
+        this.travelStations = travelStations;
+    }
 
     public String getName() {
         return name;

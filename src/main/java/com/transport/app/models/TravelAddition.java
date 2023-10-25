@@ -6,7 +6,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class TravelAddition extends BrokenRelationEntity {
+public class TravelAddition extends ParentRelationEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="travel_id", nullable=false)

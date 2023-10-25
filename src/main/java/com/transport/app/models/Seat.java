@@ -3,6 +3,9 @@ package com.transport.app.models;
 import com.transport.app.enums.SeatStatus;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class Seat extends ParentEntity{
 
@@ -21,6 +24,9 @@ public class Seat extends ParentEntity{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tenant_id", nullable = false)
     private Tenant tenant;
+
+    @OneToMany(mappedBy = "seat", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TravelSeat> travelSeats = new ArrayList<>();
 
     @Column
     @Enumerated(EnumType.STRING)
