@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 
+@Entity
 public class TravelStation extends ParentRelationEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="station_id", nullable=false)

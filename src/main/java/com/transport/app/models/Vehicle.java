@@ -62,13 +62,6 @@ public class Vehicle extends ParentEntity{
     @Column
     private Long totalLevels;
 
-    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-    @JoinTable(name = "vehicle_addition",
-            joinColumns = @JoinColumn(name = "vehicle_id"),
-            inverseJoinColumns = @JoinColumn(name = "addition_id")
-    )
-    private List<Addition> additions = new ArrayList<>();
-
     public Long getNumber() {
         return number;
     }
@@ -165,11 +158,11 @@ public class Vehicle extends ParentEntity{
         this.totalLevels = totalLevels;
     }
 
-    public List<Addition> getAdditions() {
-        return additions;
+    public List<VehicleStation> getVehicleStations() {
+        return vehicleStations;
     }
 
-    public void setAdditions(List<Addition> additions) {
-        this.additions = additions;
+    public void setVehicleStations(List<VehicleStation> vehicleStations) {
+        this.vehicleStations = vehicleStations;
     }
 }

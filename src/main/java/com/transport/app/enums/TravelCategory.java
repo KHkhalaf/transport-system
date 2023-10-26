@@ -1,4 +1,4 @@
 package com.transport.app.enums;
 
-public enum TravelCategory {
+public enum TravelCategory {TEST
 }

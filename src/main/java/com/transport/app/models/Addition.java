@@ -28,7 +28,7 @@ public class Addition extends ParentEntity{
     @OneToMany(mappedBy = "addition", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TravelAddition> travelAdditionList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "addition", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<VehicleAddition> vehicleAdditionList = new ArrayList<>();
 
     public List<TravelAddition> getTravelAdditionList() {

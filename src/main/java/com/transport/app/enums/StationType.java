@@ -1,4 +1,4 @@
 package com.transport.app.enums;
 
-public enum StationType {
+public enum StationType {TEST
 }

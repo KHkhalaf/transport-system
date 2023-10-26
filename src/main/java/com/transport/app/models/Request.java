@@ -32,6 +32,7 @@ public class Request extends ParentEntity{
     private Long totalTax;
 
     @Column
+    @Enumerated
     private RequestStatus status;
 
     @Column
@@ -48,9 +49,6 @@ public class Request extends ParentEntity{
     @OneToMany(mappedBy = "request", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Shipping> shippings = new ArrayList<>();
 
-    @OneToMany(mappedBy = "request", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Ticket> tickets = new ArrayList<>();
-
     public List<Shipping> getShippings() {
         return shippings;
     }
@@ -58,6 +56,9 @@ public class Request extends ParentEntity{
     public void setShippings(List<Shipping> shippings) {
         this.shippings = shippings;
     }
+
+    @OneToMany(mappedBy = "request", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Ticket> tickets = new ArrayList<>();
 
     public List<Ticket> getTickets() {
         return tickets;

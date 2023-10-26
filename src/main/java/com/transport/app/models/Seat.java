@@ -10,34 +10,34 @@ import java.util.List;
 public class Seat extends ParentEntity{
 
     @Column
-    private Long number;
+    private Long seatNumber;
 
     @Column
     private String seatClass;
 
     @Column
-    private Long column;
+    private Long seatColumn;
 
     @Column
-    private Long level;
+    private Long seatLevel;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tenant_id", nullable = false)
     private Tenant tenant;
 
-    @OneToMany(mappedBy = "seat", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<TravelSeat> travelSeats = new ArrayList<>();
+//    @OneToMany(mappedBy = "seat", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<TravelSeat> travelSeats = new ArrayList<>();
 
     @Column
     @Enumerated(EnumType.STRING)
     private SeatStatus status;
 
-    public Long getNumber() {
-        return number;
+    public Long getSeatNumber() {
+        return seatNumber;
     }
 
-    public void setNumber(Long number) {
-        this.number = number;
+    public void setSeatNumber(Long seatNumber) {
+        this.seatNumber = seatNumber;
     }
 
     public String getSeatClass() {
@@ -48,20 +48,20 @@ public class Seat extends ParentEntity{
         this.seatClass = seatClass;
     }
 
-    public Long getColumn() {
-        return column;
+    public Long getSeatColumn() {
+        return seatColumn;
     }
 
-    public void setColumn(Long column) {
-        this.column = column;
+    public void setSeatColumn(Long column) {
+        this.seatColumn = column;
     }
 
-    public Long getLevel() {
-        return level;
+    public Long getSeatLevel() {
+        return seatLevel;
     }
 
-    public void setLevel(Long level) {
-        this.level = level;
+    public void setSeatLevel(Long level) {
+        this.seatLevel = level;
     }
 
     public Tenant getTenant() {

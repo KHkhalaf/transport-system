@@ -11,7 +11,7 @@ import java.util.List;
 public class TimeStone extends ParentEntity{
 
     @Column
-    private String key;
+    private String timeKey;
 
     @Column
     @Enumerated(EnumType.STRING)
@@ -32,12 +32,12 @@ public class TimeStone extends ParentEntity{
         this.travelTimeStones = travelTimeStones;
     }
 
-    public String getKey() {
-        return key;
+    public String getTimeKey() {
+        return timeKey;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setTimeKey(String key) {
+        this.timeKey = key;
     }
 
     public TimeStoneCategory getCategory() {

@@ -1,4 +1,4 @@
 package com.transport.app.enums;
 
-public enum BrokenRelationType {
+public enum BrokenRelationType {TEST
 }

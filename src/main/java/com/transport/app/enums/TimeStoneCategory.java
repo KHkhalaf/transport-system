@@ -1,4 +1,4 @@
 package com.transport.app.enums;
 
-public enum TimeStoneCategory {
+public enum TimeStoneCategory {TEST
 }

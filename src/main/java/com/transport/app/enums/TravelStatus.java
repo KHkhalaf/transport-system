@@ -1,4 +1,4 @@
 package com.transport.app.enums;
 
-public enum TravelStatus {
+public enum TravelStatus {TEST
 }
