@@ -1,0 +1,35 @@
+version: '1'
+services:
+  transport-system:
+    container_name: transport-system
+    build: .
+    volumes:
+      - ./src/main/java/com/transport/app:/app/src:ro
+    ports:
+      - 8080:8080
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/transportsystem
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: transport-system
+    networks:
+      - app-network
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+      MYSQL_DATABASE: my-database
+    volumes:
+      - db_data:/var/lib/mysql
+  proxy:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - transport-system
+networks:
+  app-network:
+    driver: bridge
+volumes:
+  db_data:
